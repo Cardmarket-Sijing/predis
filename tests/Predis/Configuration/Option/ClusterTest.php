@@ -284,11 +284,13 @@ class ClusterTest extends PredisTestCase
             ->expects($this->exactly(3))
             ->method('__get')
             ->withConsecutive(
+                ['loadBalancing'],
                 ['connections'],
                 ['crc16'],
                 ['readTimeout']
             )
             ->willReturnOnConsecutiveCalls(
+                null,
                 $this->getMockBuilder('Predis\Connection\FactoryInterface')->getMock(),
                 $this->getMockBuilder('Predis\Cluster\Hash\HashGeneratorInterface')->getMock(),
                 1000
@@ -312,11 +314,13 @@ class ClusterTest extends PredisTestCase
             ->expects($this->exactly(3))
             ->method('__get')
             ->withConsecutive(
+                ['loadBalancing'],
                 ['connections'],
                 ['crc16'],
                 ['readTimeout']
             )
             ->willReturnOnConsecutiveCalls(
+                null,
                 $this->getMockBuilder('Predis\Connection\FactoryInterface')->getMock(),
                 $this->getMockBuilder('Predis\Cluster\Hash\HashGeneratorInterface')->getMock(),
                 1000
